@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentalista</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body onload="init()">
+    <main>
+        <div class="container">
+            <div class="flex">
+                <div class="flex flex-column">
+                    <div class="card">
+                        <div class="flex justify-space-between p-2">
+                            <div>
+                                <h1 class="text-xl">Mentalista Game</h1>
+                                <div>
+                                    <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-mentalista.svg " class="logo-image" alt="logo">
+                                </div>
+                                <p class="text-sm">Jogo de adivinhação númerica</p>
+                            </div>
+                            <div>
+                                <img src="./images/dialog.png " class="info-image" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="">
+
+                        <div class="flex justify-space-between align-center p-2">
+
+                            <div>
+                                <p class="text-md font-bold">Sobre o Jogo:</p>
+
+                                <div class="rounded my-2">
+                                    <p class="text-sm">O jogo da avinhação é simples, </p>
+                                    <p class="text-sm">basta acertar o número que o computador gerou.</p>
+                                </div>
+
+                                <div class="rounded my-2">
+                                    <p class="text-sm">O número gerado pelo computador está entre 0 e 10.</p>
+                                    <p class="text-sm">Vamos lá, atualmente você possui 3 tentativas</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center align">
+                                <img src="./images/mentalista.png" alt="" width="100">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex">
+                            <div class="w-full">
+                                <div>
+                                    <div class="card flex align-center justify-space-between">
+                                        <img class="profile-image rounded" src="https://github.com/deividsonsabino.png " />
+                                        <div>
+                                            <p class="m-0 text-sm">Nome do jogador</p>
+                                            <p class="m-0 text-lg font-bold my-1">Deividson Sabino</p>
+                                            <div class="my-1">
+                                                <p class="m-0 title text-sm">Programador Frontend</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="card w-full text-center">
+                                            <h4 class="text-green text-sm">Pontuação</h4>
+                                            <p><span id="points"></span></p>
+                                        </div>
+                                        <div class="card w-full text-center">
+                                            <h4 class="text-sm text-purple">Tentativas </h4>
+                                            <p><span id="changes"></span>/3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-column justify-center align-center card rounded my-2">
+
+                                <div>
+                                    <div class="success flex justify-center align-center card-green hidden">
+                                        <div class="p-2">
+                                            <p class="my-1 text-sm font-bold my-">Parabéns, você conseguiu!</p>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error flex justify-center align-center card-red hidden">
+                                        <div class="p-2">
+                                            <p class="my-1 text-sm font-bold">infelizmente suas chances acabaram ):
+                                            </p>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tip hidden">
+                                        <p class="my-1 text-sm">Dica</p>
+                                        <div class="rounded h-full border-white p-2">
+                                            <p id="tip" class="text-sm">
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-2">
+                                    <div class="input-game">
+                                        <p class="my-1 text-sm">Digite um número de 0 á 10</p>
+
+                                        <input onKeyUp="if(this.value>10){this.value='10';}else if(this.value < 0){this.value='';}" type="number" max="10" onchange="handleSubmit()" id="input-value" class="input-game input-game-number " />
+
+                                    </div>
+                                    <button onclick="handleSubmit()" class="init w-full btn bg-green rounded hidden">enviar</button>
+                                    <button onclick="init()" class="restart w-full btn bg-purple text-white rounded hidden">recomeçar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./app.js ">
+</script>
+
+</html>
