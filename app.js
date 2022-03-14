@@ -11,12 +11,16 @@ const TIP_MSG_CLASS = document.querySelector(".tip").classList
 const INIT_BUTTON_CLASS = document.querySelector(".init").classList
 const RESTART_BUTTON_CLASS = document.querySelector(".restart").classList
 
+const CARD = document.querySelector(".card").classList
+
 let COMPUTER_GENERATE_NUMBER = Math.random().toFixed() * 10
 
 POINTS.textContent = 0
 
 
 function init() {
+    CARD.add("animate__animated")
+    CARD.add("animate__fadeInLeft")
     COMPUTER_GENERATE_NUMBER = Math.random() * 10
     COMPUTER_GENERATE_NUMBER = COMPUTER_GENERATE_NUMBER.toFixed()
     console.log(COMPUTER_GENERATE_NUMBER)
@@ -31,10 +35,12 @@ function init() {
 }
 
 function handleSubmit() {
+    SUCCESS_MSG_CLASS.remove("animate__fadeInLeft")
+    ERROR_MSG_CLASS.remove("animate__fadeInLeft")
+
     if (INPUT.value === "") {
         return
     }
-
     handleChange(COMPUTER_GENERATE_NUMBER, INPUT)
     checkChanges()
 }
@@ -44,6 +50,7 @@ function handleChange(COMPUTER_GENERATE_NUMBER, INPUT) {
     if (INPUT.value != COMPUTER_GENERATE_NUMBER) {
         tips(INPUT.value)
         CHANGES.textContent = parseFloat(CHANGES.textContent) + 1
+
     } else {
         COMPUTER_GENERATE_NUMBER = Math.random() * 10
         INPUT_GAME_CLASS.add("hidden")
@@ -52,6 +59,8 @@ function handleChange(COMPUTER_GENERATE_NUMBER, INPUT) {
         SUCCESS_MSG_CLASS.remove("hidden")
         INIT_BUTTON_CLASS.add("hidden")
         RESTART_BUTTON_CLASS.remove("hidden")
+        SUCCESS_MSG_CLASS.add("animate__animated")
+        SUCCESS_MSG_CLASS.add("animate__fadeInLeft")
     }
 
     INPUT.value = ""
@@ -65,6 +74,9 @@ function checkChanges() {
         INIT_BUTTON_CLASS.add("hidden")
         INPUT_GAME_CLASS.add("hidden")
         RESTART_BUTTON_CLASS.remove("hidden")
+        ERROR_MSG_CLASS.add("animate__animated")
+        ERROR_MSG_CLASS.add("animate__fadeInLeft")
+        POINTS.textContent = 0
     }
 }
 
